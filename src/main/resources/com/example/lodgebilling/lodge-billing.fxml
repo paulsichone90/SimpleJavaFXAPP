@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.lodgebilling.LodgeBillingController"
+            prefWidth="1000"
+            prefHeight="650"
+            style="-fx-background-color: #f4f7fb;">
+
+    <top>
+
+        <HBox alignment="CENTER_LEFT"
+              spacing="20"
+              style="-fx-background-color: #1f3c88;">
+
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+
+            <Label text="LODGE BILLING SYSTEM"
+                   style="-fx-text-fill: white;
+                          -fx-font-size: 24px;
+                          -fx-font-weight: bold;"/>
+
+            <Button text="LOGOUT"
+                    onAction="#handleLogout"
+                    style="-fx-background-color: #d32f2f;
+                           -fx-text-fill: white;
+                           -fx-font-weight: bold;"/>
+
+        </HBox>
+
+    </top>
+
+    <left>
+
+        <VBox spacing="12"
+              prefWidth="280"
+              style="-fx-background-color: white;">
+
+            <padding>
+                <Insets top="25" right="20" bottom="25" left="20"/>
+            </padding>
+
+            <Label text="Customer Details"
+                   style="-fx-font-size: 20px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #1f3c88;"/>
+
+            <Label text="Customer Name"/>
+
+            <TextField fx:id="nameField"
+                       promptText="Enter customer name"/>
+
+            <Label text="Province"/>
+
+            <ComboBox fx:id="provinceComboBox"
+                      promptText="Select province"
+                      prefWidth="240"/>
+
+            <Label text="Room Type"/>
+
+            <ComboBox fx:id="roomComboBox"
+                      promptText="Select room type"
+                      prefWidth="240"/>
+
+            <Label text="Number of Nights"/>
+
+            <TextField fx:id="nightsField"
+                       promptText="Enter number of nights"/>
+
+            <Button text="ADD CUSTOMER"
+                    onAction="#handleAddCustomer"
+                    maxWidth="Infinity"
+                    prefHeight="40"
+                    style="-fx-background-color: #2e7d32;
+                           -fx-text-fill: white;
+                           -fx-font-weight: bold;"/>
+
+            <Button text="DELETE CUSTOMER"
+                    onAction="#handleDeleteCustomer"
+                    maxWidth="Infinity"
+                    prefHeight="40"
+                    style="-fx-background-color: #d32f2f;
+                           -fx-text-fill: white;
+                           -fx-font-weight: bold;"/>
+
+            <Label fx:id="totalLabel"
+                   text="Total: K0.00"
+                   style="-fx-font-size: 18px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #1f3c88;"/>
+
+        </VBox>
+
+    </left>
+
+    <center>
+
+        <VBox spacing="15">
+
+            <padding>
+                <Insets top="25" right="25" bottom="25" left="25"/>
+            </padding>
+
+            <Label text="Customer Records"
+                   style="-fx-font-size: 22px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #1f3c88;"/>
+
+            <TableView fx:id="customerTable"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="nameColumn"
+                                 text="Name"
+                                 prefWidth="170"/>
+
+                    <TableColumn fx:id="provinceColumn"
+                                 text="Province"
+                                 prefWidth="130"/>
+
+                    <TableColumn fx:id="roomColumn"
+                                 text="Room"
+                                 prefWidth="130"/>
+
+                    <TableColumn fx:id="nightsColumn"
+                                 text="Nights"
+                                 prefWidth="80"/>
+
+                    <TableColumn fx:id="billColumn"
+                                 text="Bill (K)"
+                                 prefWidth="120"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
